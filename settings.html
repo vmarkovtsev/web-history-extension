@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            width: 400px;
+            height: 156px;
+            padding: 16px;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        textarea {
+            width: 100%;
+            height: 24px;
+            margin-top: 16px;
+            box-sizing: border-box;
+            resize: none;
+        }
+        textarea:first-of-type {
+            margin-top: 0;
+        }
+        #databaseURL {
+            height: 38px;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="apiKey" name="apiKey" placeholder="Input your apiKey here." autofocus spellcheck="false" wrap="hard"></textarea>
+    <textarea id="appId" name="appId" placeholder="Input your appId here." autofocus spellcheck="false" wrap="hard"></textarea>
+    <textarea id="databaseURL" name="databaseURL" placeholder="Input your databaseURL here." autofocus spellcheck="false" wrap="hard"></textarea>
+    <script>
+        'use strict';
+
+        const apiKey = document.getElementById("apiKey");
+        const appId = document.getElementById("appId");
+        const databaseURL = document.getElementById("databaseURL");
+
+        function bindLoaded(name, element) {
+            return function loadedHandler(items) {
+                if (!chrome.runtime.lastError && items[name]) {
+                    element.value = items[name];
+                }
+            }
+        }
+        
+        function bindSaved(element) {
+            return function savedHandler() {
+                element.style.backgroundColor = chrome.runtime.lastError? "#ffcdd2" : "#c8e6c9";
+            }
+        }
+        
+
+        function bindSubmit(name, onSaved) {
+            return function submit(e) {
+                chrome.storage.sync.set({[name]: e.target.value}, onSaved);
+            }
+        }
+
+        for (let [name, element] of [["apiKey", apiKey], ["appId", appId], ["databaseURL", databaseURL]]) {
+            element.addEventListener("input", bindSubmit(name, bindSaved(element)));
+            chrome.storage.sync.get(name, bindLoaded(name, element));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+    "name": "Log Web History to Firebase",
+    "author": "Vadim Markovtsev",
+    "homepage_url": "https://github.com/vmarkovtsev/web-history-extension",
+    "version": "1.0",
+    "description": "Record all your browsing history to Firebase Realtime.",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_popup": "settings.html",
+        "default_icon": {
+            "16": "16.png",
+            "32": "32.png",
+            "48": "48.png",
+            "128": "128.png"
+        }
+    },
+    "icons": {
+        "16": "16.png",
+        "32": "32.png",
+        "48": "48.png",
+        "128": "128.png"
+    },
+    "options_page": "settings.html",
+    "permissions": ["storage", "gcm"],
+    "background": { 
+        "scripts": ["firebase-app.8.2.1.js", "firebase-database.8.2.1.js", "background.js"],
+        "persistent": true
+    },
+    "content_scripts": [{
+        "matches": [
+            "https://*/*",
+            "http://*/*"
+        ],
+        "js": ["page.js"]
+    }],
+    "content_security_policy": "script-src 'self' 'sha256-ofSCY/Xd8+pqmOdsrciAwtFiZqPnXTxdWqEqWOZ8DdE=' https://*.firebasedatabase.app; object-src 'self'"
+}
