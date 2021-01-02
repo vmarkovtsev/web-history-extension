@@ -23,7 +23,7 @@
     "options_page": "settings.html",
     "permissions": ["storage", "gcm"],
     "background": { 
-        "scripts": ["firebase-app.8.2.1.js", "firebase-database.8.2.1.js", "background.js"],
+        "scripts": ["firebase-app.8.2.1.js", "firebase-firestore.8.2.1.js", "background.js"],
         "persistent": true
     },
     "content_scripts": [{
@@ -33,5 +33,5 @@
         ],
         "js": ["page.js"]
     }],
-    "content_security_policy": "script-src 'self' 'sha256-ofSCY/Xd8+pqmOdsrciAwtFiZqPnXTxdWqEqWOZ8DdE=' https://*.firebasedatabase.app; object-src 'self'"
+    "content_security_policy": "script-src 'self' 'sha256-8u4z+lRNopAWqByd0ZOLZH1PH9227S3tskylyr0086o=' https://*.firebasedatabase.app; object-src 'self'"
 }

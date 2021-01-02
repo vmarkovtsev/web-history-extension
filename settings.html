@@ -4,7 +4,7 @@
     <style>
         body {
             width: 400px;
-            height: 156px;
+            height: 100px;
             padding: 16px;
             box-sizing: border-box;
             margin: 0;
@@ -19,21 +19,13 @@
         textarea:first-of-type {
             margin-top: 0;
         }
-        #databaseURL {
-            height: 38px;
-        }
     </style>
 </head>
 <body>
     <textarea id="apiKey" name="apiKey" placeholder="Input your apiKey here." autofocus spellcheck="false" wrap="hard"></textarea>
-    <textarea id="appId" name="appId" placeholder="Input your appId here." autofocus spellcheck="false" wrap="hard"></textarea>
-    <textarea id="databaseURL" name="databaseURL" placeholder="Input your databaseURL here." autofocus spellcheck="false" wrap="hard"></textarea>
+    <textarea id="projectId" name="projectId" placeholder="Input your projectId here." autofocus spellcheck="false" wrap="hard"></textarea>
     <script>
         'use strict';
-
-        const apiKey = document.getElementById("apiKey");
-        const appId = document.getElementById("appId");
-        const databaseURL = document.getElementById("databaseURL");
 
         function bindLoaded(name, element) {
             return function loadedHandler(items) {
@@ -56,7 +48,8 @@
             }
         }
 
-        for (let [name, element] of [["apiKey", apiKey], ["appId", appId], ["databaseURL", databaseURL]]) {
+        for (let name of ["apiKey", "projectId"]) {
+            const element = document.getElementById(name);
             element.addEventListener("input", bindSubmit(name, bindSaved(element)));
             chrome.storage.sync.get(name, bindLoaded(name, element));
         }

@@ -1,6 +1,6 @@
 # Log Web History to Firebase
 
-Chrome extension to record all your browsing history to Realtime Database of Google's Firebase.
+Chrome extension to record all your browsing history to Google's Firestore.
 You can setup a personal Firebase project with generous free tier limits.
 
 ### Installation

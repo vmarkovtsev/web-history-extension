@@ -1,6 +1,6 @@
 'use strict';
 
-chrome.storage.sync.get(["apiKey", "appId", "databaseURL"], (items) => {
+chrome.storage.sync.get(["apiKey", "projectId"], (items) => {
   firebase.initializeApp(items);
 });
 
@@ -9,10 +9,9 @@ chrome.instanceID.getID((instanceID) => {
     const time = new Date(message.time);
     message.origin = instanceID;
     firebase
-      .database()
-      .ref(`${time.getUTCFullYear()}/${time.getUTCMonth() + 1}/${time.getUTCDate()}/${time.getUTCHours()}/${time.getUTCMinutes()}`)
-      .push()
-      .set(message);
+      .firestore()
+      .collection(`${time.getUTCFullYear()}/${time.getUTCMonth() + 1}/${time.getUTCDate()}/${time.getUTCHours()}/${time.getUTCMinutes()}`)
+      .add(message);
     return true
   });
 });
