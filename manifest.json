@@ -3,7 +3,7 @@
     "author": "Vadim Markovtsev",
     "homepage_url": "https://github.com/vmarkovtsev/web-history-extension",
     "version": "1.0",
-    "description": "Record all your browsing history to Google's Firebase Realtime Database.",
+    "description": "Record all your browsing history to Google's Firestore.",
     "manifest_version": 2,
     "browser_action": {
         "default_popup": "settings.html",
