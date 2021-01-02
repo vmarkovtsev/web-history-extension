@@ -2,7 +2,7 @@
     "name": "Log Web History to Firebase",
     "author": "Vadim Markovtsev",
     "homepage_url": "https://github.com/vmarkovtsev/web-history-extension",
-    "version": "1.1",
+    "version": "1.2",
     "description": "Record all your browsing history to Google's Firestore.",
     "manifest_version": 2,
     "browser_action": {
@@ -33,5 +33,5 @@
         ],
         "js": ["page.js"]
     }],
-    "content_security_policy": "script-src 'self' 'sha256-8u4z+lRNopAWqByd0ZOLZH1PH9227S3tskylyr0086o=' https://*.firebasedatabase.app; object-src 'self'"
+    "content_security_policy": "script-src 'self' 'sha256-8u4z+lRNopAWqByd0ZOLZH1PH9227S3tskylyr0086o='; object-src 'self'"
 }
