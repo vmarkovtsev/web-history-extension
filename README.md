@@ -42,9 +42,10 @@ The extension writes to Firestore after each page fully loads in Chrome. It puts
 
 ### Contributions
 
-Please contribute!
+Please contribute! You can report problems to [Issues](https://github.com/vmarkovtsev/web-history-extension/issues), ask questions in [Discussions](https://github.com/vmarkovtsev/web-history-extension/discussions), improve the docs, PR new features or bug fixes.
+Please follow the [code of conduct](CODE_OF_CONDUCT.md).
 
 ### License
 
-MIT.
+[MIT](LICENSE).
 
