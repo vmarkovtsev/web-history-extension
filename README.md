@@ -10,6 +10,8 @@ it is possible to move the old records to some cloud storage in JSON format and 
 
 Load unpacked from this repository or [install from Chrome Web Store](https://chrome.google.com/webstore/detail/log-web-history-to-fireba/peeibbgjeaolekgoojkeefogkllmfgjf).
 
+The users of [Kiwi Browser](https://kiwibrowser.com/) should disable QUIC.
+
 ### Configuration
 
 You need to obtain two secrets: `apiKey` - Firebase API token, and `projectId` - Firebase project identifier. Once you know them, click the extension's icon and fill them in the corresponding textboxes. They will be automatically saved to your Google profile and synced everywhere.

@@ -6,7 +6,8 @@ chrome.storage.sync.get(["apiKey", "projectId"], (items) => {
 
 chrome.instanceID.getID((instanceID) => {
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    const time = new Date(message.time);
+    const time = new Date();
+    message.time = time;
     message.origin = instanceID;
     firebase
       .firestore()
