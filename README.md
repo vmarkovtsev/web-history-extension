@@ -38,6 +38,7 @@ The extension writes to Firestore after each page fully loads in Chrome. It puts
 * `time` - exact UTC timestamp of when the page opened.
 * `title` - title of the page.
 * `text` - entire text content of the page. Its size is normally within tens of kilobytes.
+* `truncated` - indicates whether the `text`'s length exceeded the limit (50,000) and `text` was cut.
 * `url` - URL of the page.
 * `origin` - unique ID of the browser. It should change device-wise.
 * `agent` - user agent of the browser.
